@@ -7,12 +7,10 @@ Stage: spython-base
 REPO_TAG="master"
 COMMIT="unspecified to docker build"
 
-adduser deepuser
-
-REPOS=/home/deepuser/repos
-REPO=/home/deepuser/repos/deepinterpolation
-CONDA_ENVS_PATH=/home/deepuser/envs
-CONDA_PKGS_DIRS=/home/deepuser/pkgs
+REPOS=/home/nguyenomi/repos
+REPO=/home/nguyenomi/repos/deepinterpolation
+CONDA_ENVS_PATH=/home/nguyenomi/envs
+CONDA_PKGS_DIRS=/home/nguyenomi/pkgs
 CONDA_ENV_NAME=deep_env
 DEEPINTERPOLATION_COMMIT_SHA=${COMMIT}
 TMPDIR=/tmp
@@ -27,10 +25,10 @@ mkdir ${REPOS} \
 su -  deepuser # USER deepuser
 
 %environment
-export REPOS=/home/deepuser/repos
-export REPO=/home/deepuser/repos/deepinterpolation
-export CONDA_ENVS_PATH=/home/deepuser/envs
-export CONDA_PKGS_DIRS=/home/deepuser/pkgs
+export REPOS=/home/nguyenomi/repos
+export REPO=/home/nguyenomi/repos/deepinterpolation
+export CONDA_ENVS_PATH=/home/nguyenomi/envs
+export CONDA_PKGS_DIRS=/home/nguyenomi/pkgs
 export CONDA_ENV_NAME=deep_env
 export DEEPINTERPOLATION_COMMIT_SHA=${COMMIT}
 export TMPDIR=/tmp
