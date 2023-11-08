@@ -8,7 +8,7 @@ REPO_TAG="master"
 COMMIT="unspecified to docker build"
 
 REPOS=/home/nguyenomi/repos
-REPO=/home/nguyenomi/repos/deepinterpolation
+REPO=/home/nguyenomi/repos/caDIProcessing
 CONDA_ENVS_PATH=/home/nguyenomi/envs
 CONDA_PKGS_DIRS=/home/nguyenomi/pkgs
 CONDA_ENV_NAME=deep_env
@@ -24,7 +24,7 @@ mkdir ${REPOS} \
 
 %environment
 export REPOS=/home/nguyenomi/repos
-export REPO=/home/nguyenomi/repos/deepinterpolation
+export REPO=/home/nguyenomi/repos/caDIProcessing
 export CONDA_ENVS_PATH=/home/nguyenomi/envs
 export CONDA_PKGS_DIRS=/home/nguyenomi/pkgs
 export CONDA_ENV_NAME=deep_env
