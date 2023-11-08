@@ -22,8 +22,6 @@ mkdir ${REPOS} \
 && git clone -b ${REPO_TAG} https://github.com/nguyemi5/caDIProcessing ${REPO} \
 && pip install ${REPO}
 
-su -  deepuser # USER deepuser
-
 %environment
 export REPOS=/home/nguyenomi/repos
 export REPO=/home/nguyenomi/repos/deepinterpolation
