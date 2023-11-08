@@ -17,7 +17,7 @@ RUN apt-get update \
     && apt-get -y install git python3-pip
 
 RUN mkdir ${REPOS} \
-    && git clone -b ${REPO_TAG} https://github.com/AllenInstitute/deepinterpolation ${REPO} \
+    && git clone -b ${REPO_TAG} https://github.com/nguyemi5/caDIProcessing ${REPO} \
     && pip install ${REPO}
 
 USER deepuser

@@ -75,7 +75,7 @@ class core_trainer:
         if "use_multiprocessing" in json_data.keys():
             self.use_multiprocessing = json_data["use_multiprocessing"]
         else:
-            self.use_multiprocessing = True
+            self.use_multiprocessing = False
 
         if "caching_validation" in json_data.keys():
             self.caching_validation = json_data["caching_validation"]
@@ -154,6 +154,7 @@ class core_trainer:
             verbose=1,
             save_best_only=True,
             mode="min",
+            save_freq="epoch",
             period=self.period_save,
         )
 
@@ -249,7 +250,7 @@ class core_trainer:
                 max_queue_size=32,
                 workers=self.workers,
                 shuffle=False,
-                use_multiprocessing=True,
+                use_multiprocessing=False,  # True
                 callbacks=self.callbacks_list,
                 initial_epoch=0,
             )
@@ -375,7 +376,7 @@ class transfer_trainer(core_trainer):
         if "use_multiprocessing" in self.json_data.keys():
             self.use_multiprocessing = self.json_data["use_multiprocessing"]
         else:
-            self.use_multiprocessing = True
+            self.use_multiprocessing = False
 
         if "checkpoints_dir" in self.json_data.keys():
             self.checkpoints_dir = self.json_data["checkpoints_dir"]
