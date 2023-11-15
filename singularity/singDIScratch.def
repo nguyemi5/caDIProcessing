@@ -1,0 +1,17 @@
+# build environment for deepInterpolation data processing
+
+Bootstrap: docker
+From: ubuntu:20.04
+
+%environment
+    export PATH="/usr/local/bin:$PATH"
+    export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
+
+%post
+    # Install dependencies
+    apt-get update && apt-get install -y \
+        python3.7 \
+        python3.7-pip \
+
+    # Install your data processing application
+    pip install deepinterpolation \
