@@ -11,7 +11,7 @@ From: ubuntu:20.04
     # Install dependencies
     apt-get update && apt-get install -y \
         python3.7 \
-        python3.7-pip \
+        python3-pip \
 
     # Install your data processing application
     pip install deepinterpolation \
