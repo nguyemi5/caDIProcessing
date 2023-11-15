@@ -6,6 +6,7 @@ From: ubuntu:20.04
 %environment
     export PATH="/usr/local/bin:$PATH"
     export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
+    export TMPDIR=$SCRATCHDIR
 
 %post
     # Install dependencies
