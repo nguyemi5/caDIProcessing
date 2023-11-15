@@ -7,13 +7,15 @@ Stage: spython-base
 REPO_TAG="master"
 COMMIT="unspecified to docker build"
 
-REPOS=/storage/plzen1/home/nguyenomi
-REPO=/storage/plzen1/home/nguyenomi/caDIProcessing
-CONDA_ENVS_PATH=/storage/plzen1/home/nguyenomi/.conda/envs
-CONDA_PKGS_DIRS=/storage/plzen1/home/nguyenomi/.conda/pkgs
+adduser deepuser
+
+REPOS=/home/deepuser/repos
+REPO=/home/deepuser/repos/deepinterpolation
+CONDA_ENVS_PATH=/home/deepuser/envs
+CONDA_PKGS_DIRS=/home/deepuser/pkgs
 CONDA_ENV_NAME=deep_env
 DEEPINTERPOLATION_COMMIT_SHA=${COMMIT}
-TMPDIR=$SCRATCHDIR
+TMPDIR=/tmp
 
 apt-get update \
 && apt-get -y install git python3-pip
@@ -23,15 +25,16 @@ mkdir ${REPOS} \
 && pip install ${REPO}
 
 %environment
-export REPOS=/storage/plzen1/home/nguyenomi
-export REPO=/storage/plzen1/home/nguyenomi/caDIProcessing
-export CONDA_ENVS_PATH=/storage/plzen1/home/nguyenomi/.conda/envs
-export CONDA_PKGS_DIRS=/storage/plzen1/home/nguyenomi/.conda/pkgs
+export REPOS=/home/deepuser/repos
+export REPO=/home/deepuser/repos/deepinterpolation
+export CONDA_ENVS_PATH=/home/deepuser/envs
+export CONDA_PKGS_DIRS=/home/deepuser/pkgs
 export CONDA_ENV_NAME=deep_env
 export DEEPINTERPOLATION_COMMIT_SHA=${COMMIT}
-export TMPDIR=$SCRATCHDIR
+export TMPDIR=/tmp
 
 %runscript
 exec /bin/bash -c $@ --
+
 %startscript
 exec /bin/bash -c $@ --
