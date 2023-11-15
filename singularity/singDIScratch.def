@@ -8,7 +8,7 @@ From: ubuntu:20.04
 
 %post
     # Install dependencies
-    apt-get update && apt-get install -y \
+    apt-get update && apt-get install apt-utils && apt-get install -y \
         python3.7 \
         python3-pip \
 
