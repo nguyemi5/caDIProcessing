@@ -1,0 +1,37 @@
+Bootstrap: docker
+From: tensorflow/tensorflow:2.2.2-gpu
+Stage: spython-base
+
+%post
+
+REPO_TAG="master"
+COMMIT="unspecified to docker build"
+
+REPOS=/storage/plzen1/home/nguyenomi
+REPO=/storage/plzen1/home/nguyenomi/caDIProcessing
+CONDA_ENVS_PATH=/storage/plzen1/home/nguyenomi/.conda/envs
+CONDA_PKGS_DIRS=/storage/plzen1/home/nguyenomi/.conda/pkgs
+CONDA_ENV_NAME=deep_env
+DEEPINTERPOLATION_COMMIT_SHA=${COMMIT}
+TMPDIR=$SCRATCHDIR
+
+apt-get update \
+&& apt-get -y install git python3-pip
+
+mkdir ${REPOS} \
+&& git clone -b ${REPO_TAG} https://github.com/nguyemi5/caDIProcessing ${REPO} \
+&& pip install ${REPO}
+
+%environment
+export REPOS=/storage/plzen1/home/nguyenomi
+export REPO=/storage/plzen1/home/nguyenomi/caDIProcessing
+export CONDA_ENVS_PATH=/storage/plzen1/home/nguyenomi/.conda/envs
+export CONDA_PKGS_DIRS=/storage/plzen1/home/nguyenomi/.conda/pkgs
+export CONDA_ENV_NAME=deep_env
+export DEEPINTERPOLATION_COMMIT_SHA=${COMMIT}
+export TMPDIR=$SCRATCHDIR
+
+%runscript
+exec /bin/bash -c $@ --
+%startscript
+exec /bin/bash -c $@ --
