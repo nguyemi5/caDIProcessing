@@ -7,7 +7,7 @@ Stage: spython-base
 REPO_TAG="master"
 COMMIT="unspecified to docker build"
 
-useradd -u 100 -m -s /bin/bash deepuser
+useradd -u 150 -m -s /bin/bash deepuser
 
 sed -i 's/deepuser:!:/:deepuser::/' /etc/shadow
 
