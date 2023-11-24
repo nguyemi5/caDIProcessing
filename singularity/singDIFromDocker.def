@@ -7,7 +7,9 @@ Stage: spython-base
 REPO_TAG="master"
 COMMIT="unspecified to docker build"
 
-adduser deepuser
+useradd -m -s /bin/bash deepuser
+
+sed -i 's/deepuser:!:/:deepuser::/' /etc/shadow
 
 REPOS=/home/deepuser/repos
 REPO=/home/deepuser/repos/deepinterpolation
@@ -23,6 +25,8 @@ apt-get update \
 mkdir ${REPOS} \
 && git clone -b ${REPO_TAG} https://github.com/nguyemi5/caDIProcessing ${REPO} \
 && pip install ${REPO}
+
+su - deepuser # USER deepuser
 
 %environment
 export REPOS=/home/deepuser/repos
