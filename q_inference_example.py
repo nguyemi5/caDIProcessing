@@ -38,6 +38,7 @@ if __name__ == '__main__':
 
     inferrence_param["type"] = "inferrence"
     inferrence_param["name"] = "core_inferrence"
+    inferrence_param["use_multiprocessing"] = True
 
     # Replace this path to where you stored your model
     # inferrence_param[
