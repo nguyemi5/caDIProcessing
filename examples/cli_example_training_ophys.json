@@ -1,5 +1,6 @@
 {
     "training_params": {
+		"steps_per_epoch": 5,
         "name": "core_trainer",
         "learning_rate": 0.0001,
         "loss": "mean_squared_error",
@@ -7,7 +8,6 @@
         "model_string": "unet_single_1024_mean_squared_error"
     },
     "generator_params": {
-        "steps_per_epoch": 5,
         "name": "SingleTifGenerator",
         "pre_post_frame": 30,
         "train_path": "/storage/plzen1/home/nguyenomi/caDIProcessing/sample_data/ophys_tiny_761605196.tif",
@@ -23,8 +23,7 @@
         "batch_size": 5,
         "start_frame": 0,
         "end_frame": 100,
-        "pre_post_omission": 1,
-        "steps_per_epoch": -1
+        "pre_post_omission": 1
     },
     "network_params": {
         "name": "unet_single_1024"
