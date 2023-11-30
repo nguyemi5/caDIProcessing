@@ -27,7 +27,7 @@
         "steps_per_epoch": -1
     },
     "network_params": {
-        "name": "unet_single_1024_meta"
+        "name": "unet_single_1024"
     },
     "output_full_args": true
 }
