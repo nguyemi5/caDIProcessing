@@ -1,0 +1,16 @@
+Bootstrap: localimage
+From: /cvmfs/singularity.metacentrum.cz/NGC/TensorFlow:21.04-tf2-py3.SIF
+
+%post
+	apt-get update
+	apt-get install -y python3-pip
+	apt-get install -y git
+	mkdir /home/$USER/repos
+	cd /home/$USER/repos
+	git clone https://github.com/nguyemi5/caDIProcessing.git
+	cd /home/$USER/repos/caDIProcessing
+	make init
+	pip install -e .
+	
+%runscript
+	exec /bin/bash -c $@ --
